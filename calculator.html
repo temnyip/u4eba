@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		document.addEventListener("DOMContentLoaded", createPage);
+		function createPage()
+		{
+
+
+
+			let num1 = document.createElement("input"); //создание определенного класса
+			num1.id = "test1"; 
+			num1.type = 'numeric'							// присовение id
+			num1.classList.add('C1');					//присвоение класса
+			document.body.append(num1);					// создание input-а в теле документа 
+
+			let select = document.createElement('select');
+			let plus = document.createElement('option');
+			plus.value = '+';
+			plus.text = "+";
+			select.add(plus, null);
+
+			let minus = document.createElement('option');
+			minus.value = '-';
+			minus.text = "-";
+			select.add(minus, null);
+
+			let divide = document.createElement('option');
+			divide.value = '*';
+			divide.text = "*";
+			select.add(divide, null);
+
+			let multiply = document.createElement('option');
+			multiply.value = '/';
+			multiply.text = "/";
+			select.add(multiply, null);
+
+			select.id = "oper";
+			select.classList.add('operators');
+			document.body.append(select);
+
+			let num2 = document.createElement("input");
+			num2.id = "test2";
+			num2.type = 'numeric'	
+			num2.classList.add('C2');
+			document.body.append(num2);
+
+			let button = document.createElement('button');
+			button.innerHTML = 'Рассчитать';
+			button.onclick = calc;
+			button.classList.add('calculate');
+			document.body.append(button);
+
+
+
+		}
+		function calc()
+		{
+			let n1 = parseFloat(document.getElementById('num1').value);
+			let n2 = parseFloat(document.getElementById('num2').value);
+			let oper = document.getElementById('oper').value;
+				if (oper === '+') {
+					document.getElementById('result').value = n1 + n2;
+				}
+				if (oper === '-') {
+					document.getElementById('result').value = n1 - n2;
+				}
+				if (oper === '/') {
+					document.getElementById('result').value = n1 / n2;
+				}
+				if (oper === '*') {
+					document.getElementById('result').value = n1 * n2;
+				}
+				document.getElementById("result").innerHTML = result;
+          }
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
